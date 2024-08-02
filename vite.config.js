@@ -2,7 +2,11 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: "/react-rating-app/",
-  plugins: [react()],
-});
+// vite.config.js
+export default {
+  build: {
+    rollupOptions: {
+      external: ["/react-rating-app/src/main.jsx"], // Add the module path that needs to be externalized
+    },
+  },
+};
